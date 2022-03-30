@@ -1,27 +1,20 @@
-
-CREATE TABLE IF NOT EXISTS SONGS (
-	ID INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    TITULO VARCHAR(100) NOT NULL,
-    SOUNDCLOUD_URL VARCHAR(300) NOT NULL,
-    START_SEC INT,
-    ORDEN INT NOT NULL
+create table if not exists songs (
+    id int unsigned primary key auto_increment not null,
+    titulo varchar(100) not null,
+    soundcloud_url varchar(300) not null,
+    start_sec int,
+    orden int not null
 );
 
-CREATE TABLE IF NOT EXISTS FAKECOMPLETE(
-	ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    TITULO VARCHAR(300) NOT NULL
+create table if not exists autocomplete(
+    id int primary key not null auto_increment,
+    titulo varchar(300) not null
 );
 
-CREATE TABLE IF NOT EXISTS AUTOCOMPLETE(
-	ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    ID_SONG INT UNSIGNED NOT NULL,
-    FOREIGN KEY (ID_SONG) REFERENCES SONGS(ID)
-);
-
-CREATE TABLE IF NOT EXISTS RESULTS(
-	UUID INT NOT NULL,
-    ID_SONG INT UNSIGNED NOT NULL,
-    INTENTO INT NOT NULL,
-    PRIMARY KEY (UUID,ID_SONG),
-    FOREIGN KEY (ID_SONG) REFERENCES SONGS(ID)
+create table if not exists results(
+    uuid int not null,
+    id_song int unsigned not null,
+    intento int not null,
+    primary key (uuid,id_song),
+    foreign key (id_song) references songs(id)
 );
