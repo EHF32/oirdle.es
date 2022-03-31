@@ -1,18 +1,38 @@
 import { GetServerSideProps } from "next";
+import { CSSObjectWithLabel, Options } from "react-select";
+import Autocomplete from "../components/Autocomplete";
 import executeQuery from "../db/db";
-import { Song } from "../db/db.types";
+import { AutocompleteType, Song } from "../db/db.types";
 
-export default function testdb({ song }: { song: Song }) {
-  return <div>{song.titulo}</div>;
+export default function testdb({ song, autocompleteData }: QueryResult) {
+  return (
+    <div>
+      {JSON.stringify(autocompleteData)}
+
+      <Autocomplete options={autocompleteData} />
+    </div>
+  );
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const result = (await executeQuery({
-    query: "SELECT * FROM songs",
-  })) as Song[];
+    query: "SELECT * FROM songs;SELECT * FROM autocomplete",
+  })) as any;
 
-  console.log("result: ", result);
+  const song = result[0][0] as Song;
+  const autocomplete = result[1] as AutocompleteType[];
+
+  const autocompleteData: any = Array.from(autocomplete, (e) => ({
+    value: e.id,
+    label: e.titulo,
+  }));
+
   return {
-    props: { song: JSON.parse(JSON.stringify(result[0])) }, // will be passed to the page component as props
+    props: JSON.parse(JSON.stringify({ song, autocompleteData })), // will be passed to the page component as props
   };
+};
+
+type QueryResult = {
+  song: Song;
+  autocompleteData: any;
 };

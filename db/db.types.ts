@@ -12,7 +12,7 @@ export type Result = {
   intento: number;
 };
 
-export type Fakecomplete = {
+export type AutocompleteType = {
   id: number;
   titulo: string;
 };
