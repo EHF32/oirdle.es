@@ -16,6 +16,22 @@ const Autocomplete = ({ options }: any) => {
       options={options}
       menuIsOpen={isMenuOpen}
       inputValue={input}
+      menuPosition={"fixed"}
+      menuPlacement="top"
+      styles={{ menuPortal: (base) => ({ ...base, zIndex: 9999 }) }}
+      theme={(theme) => ({
+        ...theme,
+        borderRadius: 0,
+        colors: {
+          ...theme.colors,
+          primary25: "hotpink",
+          primary: "black",
+        },
+      })}
+      components={{
+        DropdownIndicator: () => null,
+        IndicatorSeparator: () => null,
+      }}
       placeholder={"¿Lo sabes? Busca por artista / titulo"}
       onInputChange={(v, action) => {
         if (action?.action !== "input-blur" && action?.action !== "menu-close")
