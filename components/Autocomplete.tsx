@@ -15,23 +15,26 @@ const Autocomplete = ({ options }: any) => {
     <Select
       options={options}
       menuIsOpen={isMenuOpen}
-      inputValue={input}
       menuPosition={"fixed"}
       menuPlacement="top"
-      styles={{ menuPortal: (base) => ({ ...base, zIndex: 9999 }) }}
-      theme={(theme) => ({
-        ...theme,
-        borderRadius: 0,
-        colors: {
-          ...theme.colors,
-          primary25: "hotpink",
-          primary: "black",
-        },
-      })}
+      className="my-react-select-container"
+      classNamePrefix="my-react-select"
+      inputValue={input}
       components={{
         DropdownIndicator: () => null,
         IndicatorSeparator: () => null,
       }}
+      styles={{
+        menuPortal: (base) => ({ ...base, zIndex: 9999 }),
+        option: (styles) => ({ ...styles, textAlign: "left" }),
+        valueContainer: (styles) => ({ ...styles, textAlign: "left" }),
+      }}
+      theme={(theme) => ({
+        ...theme,
+        borderRadius: 0,
+        border: "1px solid green",
+        backgroundColor: "green",
+      })}
       placeholder={"¿Lo sabes? Busca por artista / titulo"}
       onInputChange={(v, action) => {
         if (action?.action !== "input-blur" && action?.action !== "menu-close")

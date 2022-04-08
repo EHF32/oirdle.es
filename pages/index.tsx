@@ -62,25 +62,25 @@ const Home = ({ song, autocompleteData }: QueryResult) => {
       </div>
 
       {/*Guesses*/}
-      <div className="h-screen flex justify-center">
-        <div className="max-w-screen-sm w-full mx-auto h-full flex flex-col justify-between overflow-auto p-3">
-          <div className="pt-3 flex-col items-evenly">
-            <div className="p-2 mb-2 border border-custom-mg flex items-center last:mb-0 border-custom-line">
+      <div className="flex justify-center h-screen">
+        <div className="flex flex-col justify-between w-full h-full p-3 mx-auto overflow-auto max-w-screen-sm">
+          <div className="flex-col pt-3 items-evenly">
+            <div className="flex items-center p-2 mb-2 border border-custom-mg last:mb-0 border-custom-line">
               <div className="w-5 h-5"></div>{" "}
             </div>
-            <div className="p-2 mb-2 border  flex items-center last:mb-0">
+            <div className="flex items-center p-2 mb-2 border last:mb-0">
               <div className="w-5 h-5"></div>{" "}
             </div>
-            <div className="p-2 mb-2 border flex items-center last:mb-0">
+            <div className="flex items-center p-2 mb-2 border last:mb-0">
               <div className="w-5 h-5"></div>{" "}
             </div>
-            <div className="p-2 mb-2 border flex items-center last:mb-0">
+            <div className="flex items-center p-2 mb-2 border last:mb-0">
               <div className="w-5 h-5"></div>{" "}
             </div>
-            <div className="p-2 mb-2 border flex items-center last:mb-0">
+            <div className="flex items-center p-2 mb-2 border last:mb-0">
               <div className="w-5 h-5"></div>{" "}
             </div>
-            <div className="p-2 mb-2 border flex items-center last:mb-0">
+            <div className="flex items-center p-2 mb-2 border last:mb-0">
               <div className="w-5 h-5"></div>{" "}
             </div>
           </div>{" "}
@@ -91,29 +91,29 @@ const Home = ({ song, autocompleteData }: QueryResult) => {
       <PlayerWidget />
 
       {/*ProgressBar*/}
-      <div className="flex justify-center flex-col pt-5">
+      <div className="flex flex-col justify-center pt-5">
         <div className="flex flex-col h-28">
           <div className="flex flex-col border-t border-b border-white">
-            <div className="max-w-screen-sm w-full mx-auto h-full flex flex-col justify-between overflow-auto pl-3 pr-3">
+            <div className="flex flex-col justify-between w-full h-full pl-3 pr-3 mx-auto overflow-auto max-w-screen-sm">
               <div style={{ backgroundColor: "#2d2d33" }} className="flex h-4">
                 <div className="w-12 h-full border-r border-white"></div>
                 <div className="w-16 h-full border-r border-white"></div>
                 <div className="w-24 h-full border-r border-white"></div>
-                <div className="w-36 h-full border-r border-white"></div>
-                <div className="w-44 h-full border-r border-white"></div>
-                <div className="w-60 h-full"></div>
+                <div className="h-full border-r border-white w-36"></div>
+                <div className="h-full border-r border-white w-44"></div>
+                <div className="h-full w-60"></div>
               </div>
             </div>
           </div>
 
-          <div className="max-w-screen-sm w-full mx-auto h-full flex flex-col justify-between overflow-auto pl-3 pr-3">
-            <div className="pt-3 flex-col items-evenly">
-              <div className="p-2 mb-2 border border-custom-mg flex items-center last:mb-0 border-custom-line">
+          <div className="flex flex-col justify-between w-full h-full pl-3 pr-3 mx-auto overflow-auto max-w-screen-sm">
+            <div className="flex-col pt-3 items-evenly">
+              <div className="flex items-center p-2 mb-2 border border-custom-mg last:mb-0 border-custom-line">
                 <div className="w-full">
                   <Autocomplete options={autocompleteData} />
                 </div>
               </div>
-            </div>{" "}
+            </div>
           </div>
         </div>
       </div>
